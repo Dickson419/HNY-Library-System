@@ -10,6 +10,8 @@ function checkboxChange(clickedBox){
 
 }
 
+document.addEventListener("DOMContentLoaded", () => startScanner());
+
 function startScanner() {
   const logDiv = document.getElementById('log'); //display messages to the user
   //setup the qr scanner and display video feed
@@ -27,7 +29,8 @@ function startScanner() {
         { fps: 10, qrbox: 250 },
         qrCodeMessage => {
             //callback function - when qr detected
-          logDiv.textContent = "Scanned: " + qrCodeMessage;
+          scanQrCode(qrCodeMessage)
+          //logDiv.textContent = "Scanned: " + qrCodeMessage; //TESTING ONLY
         }
       );
     } else {
@@ -36,6 +39,19 @@ function startScanner() {
   }).catch(err => {
     logDiv.textContent = "Camera access error: " + err;
   });
+}
+
+function scanQrCode(decodedText){
+  //decodedText and result are the QR code!
+  try{
+    const data = JSON.parse(decodedText);
+    document.getElementById('Book-title').value = data.title || '';
+    document.getElementById('Book-author').value = data.author || '';
+
+  } catch(e) {
+    console.error("Ivalide QR code", e)
+  }
+
 }
 
 

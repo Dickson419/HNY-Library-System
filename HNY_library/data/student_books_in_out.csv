@@ -1,10 +1,12 @@
-DTG, Student, Title, Check Out, Return
-2025-11-07T11:18:25.781336,Steven Dickson,Reaper's Gale,on,
-2025-11-07T11:22:33.423622,Andrea Moon,The Great Gatsby,False,True
-2025-11-07T11:23:03.884717,Steven Dickson,Reaper's Gale,False,True
-2025-11-07T11:23:58.923865,Andrea Moon,A court of...,True,False
-2025-11-07T11:24:13.741840,Andrea Moon,A court of...,False,True
-2025-11-07T11:25:44.221838,Andrea Moon,A Court Of...,False,True
-2025-11-07T11:26:05.498490,New Guy,Some Words,True,False
-11 /07 /2025 /11,Test Student,Best Book Ever,True,False
-11/07/2025/11/30,Steven Dickson,Toll Of The Hounds,True,False
+DTG,Student,Title,Author,Check Out,Return
+11/10/2025/1332,Steve D,1984,George Orwell,True,False
+11/10/2025/1333,Andrea M,Pride And Prejudice,Jane Austen,True,False
+11/10/2025/1334,Kyle S,The Hobbit,J.R.R. Tolkien,True,False
+11/10/2025/1335,Steve D,1984,George Orwell,False,True
+11/10/2025/1335,Kyle S,The Hobbit,J.R.R. Tolkien,False,True
+11/10/2025/1335,Andrea M,Pride And Prejudice,Jane Austen,False,True
+11/10/2025/1441,Steve D,1984,George Orwell,False,True
+11/10/2025/1442,Steve D,1984,George Orwell,False,True
+11/10/2025/1447,Kyle S,The Hobbit,J.R.R. Tolkien,False,True
+11/10/2025/1455,New Guy,Pride And Prejudice,Jane Austen,True,False
+11/10/2025/1455,New Guy,Pride And Prejudice,Jane Austen,False,True
