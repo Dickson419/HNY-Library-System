@@ -10,6 +10,19 @@ function checkboxChange(clickedBox){
 
 }
 
+document.addEventListener("DOMContentLoaded", () => startScanner());
+
+function qrBoxSize(){
+    let minEdgePercentage = 0.7; // 70%
+    let minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
+    let qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
+    return {
+        width: qrboxSize,
+        height: qrboxSize
+    };
+
+}
+
 function startScanner() {
   const logDiv = document.getElementById('log'); //display messages to the user
   //setup the qr scanner and display video feed
@@ -24,10 +37,11 @@ function startScanner() {
         //using the first camera in the list setup with these specs
       html5QrCode.start(
         cameras[0].id,
-        { fps: 10, qrbox: 250 },
+        { fps: 10, qrbox: qrBoxSize },
         qrCodeMessage => {
             //callback function - when qr detected
-          logDiv.textContent = "Scanned: " + qrCodeMessage;
+          scanQrCode(qrCodeMessage)
+          //logDiv.textContent = "Scanned: " + qrCodeMessage; //TESTING ONLY
         }
       );
     } else {
@@ -36,6 +50,19 @@ function startScanner() {
   }).catch(err => {
     logDiv.textContent = "Camera access error: " + err;
   });
+}
+
+function scanQrCode(decodedText){
+  //decodedText and result are the QR code!
+  try{
+    const data = JSON.parse(decodedText);
+    document.getElementById('Book-title').value = data.title || '';
+    document.getElementById('Book-author').value = data.author || '';
+
+  } catch(e) {
+    console.error("Ivalide QR code", e)
+  }
+
 }
 
 
